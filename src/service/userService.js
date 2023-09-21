@@ -31,13 +31,13 @@ const updateUser = async(req,res)=>{
     const{name,phoneNo,age,gender}=req.body
     const id = req.params.id
     try {
-        const updateUserData = await userModel.findByIdAndUpdate(id,{
+         await userModel.findByIdAndUpdate(id,{
             name,
             phoneNo,
             age,
             gender
         });
-        res.send(updateUserData)
+        res.send('data updated successfully')
     } catch (error) {
         console.log(error)
         res.status(500).send('Internal server error');
